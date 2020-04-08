@@ -42,13 +42,13 @@
 
     <script>
         var url = "https://pomber.github.io/covid19/timeseries.json";
-        var casos, italia, austria, eslovenia, francia, suiza;
+        var casos, italia, austria, india, francia, portugal;
         var marzo = [];
         var marzo_italia = [];
         var marzo_austria = [];
-        var marzo_eslovenia = [];
+        var marzo_india = [];
         var marzo_francia = [];
-        var marzo_suiza = [];
+        var marzo_portugal = [];
 
         function preload() {
             casos = loadJSON(url);
@@ -63,9 +63,9 @@
 
             italia = casos.Italy;
             austria = casos.Austria;
-            eslovenia = casos.Slovenia;
+            india = casos.India;
             francia = casos.France;
-            suiza = casos.Switzerland;
+            portugal = casos.Portugal;
 
             for (let x = 0; x < italia.length; x++) {
                 if (italia[x].date.includes("-3-")) {
@@ -75,72 +75,72 @@
 
             for (let x = 0; x < austria.length; x++) {
                 if (austria[x].date.includes("-3-")) {
-                    marzo_austria.push(austria[x].confirmed);
+                    marzo_austria.push(austria[x].recovered);
                 }
             }
 
-            for (let x = 0; x < eslovenia.length; x++) {
-                if (eslovenia[x].date.includes("-3-")) {
-                    marzo_eslovenia.push(eslovenia[x].confirmed);
+            for (let x = 0; x < india.length; x++) {
+                if (india[x].date.includes("-3-")) {
+                    marzo_india.push(india[x].recovered);
                 }
             }
 
             for (let x = 0; x < francia.length; x++) {
                 if (francia[x].date.includes("-3-")) {
-                    marzo_francia.push(francia[x].confirmed);
+                    marzo_francia.push(francia[x].recovered);
                 }
             }
 
-            for (let x = 0; x < suiza.length; x++) {
-                if (suiza[x].date.includes("-3-")) {
-                    marzo_suiza.push(suiza[x].confirmed);
+            for (let x = 0; x < portugal.length; x++) {
+                if (portugal[x].date.includes("-3-")) {
+                    marzo_portugal.push(portugal[x].recovered);
                 }
             }
 
             new Chart(document.getElementById('chart').getContext('2d'), {
-                type: 'line',
+                type: 'bar',
                 data: {
                     labels: marzo,
                     datasets: [{
                         label: 'Austria',
-                        backgroundColor: 'rgba(152,78,163,.1)',
-                        borderColor: 'rgb(152,78,163)',
+                        backgroundColor: 'rgba(255,255,204)',
+                        borderColor: 'rgb(255,255,204)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
                         data: marzo_austria
                     }, {
-                        label: 'Eslovenia',
-                        backgroundColor: 'rgba(77,175,74,.1)',
-                        borderColor: 'rgb(77,175,74)',
+                        label: 'India',
+                        backgroundColor: 'rgba(194,230,153)',
+                        borderColor: 'rgb(194,230,153)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
-                        data: marzo_eslovenia
+                        data: marzo_india
                     }, {
                         label: 'Francia',
-                        backgroundColor: 'rgba(55,126,184,.1)',
-                        borderColor: 'rgb(55,126,184)',
+                        backgroundColor: 'rgba(120,198,121)',
+                        borderColor: 'rgb(120,198,121)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
                         data: marzo_francia
                     }, {
                         label: 'Italia',
-                        backgroundColor: 'rgba(228,26,28,.1)',
-                        borderColor: 'rgb(228,26,28)',
+                        backgroundColor: 'rgba(49,163,84)',
+                        borderColor: 'rgb(49,163,84)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
                         data: marzo_italia
                     }, {
-                        label: 'Suiza',
-                        backgroundColor: 'rgba(255,127,0,.1)',
-                        borderColor: 'rgb(255,127,0)',
+                        label: 'Portugal',
+                        backgroundColor: 'rgba(0,104,55)',
+                        borderColor: 'rgb(0,104,55)',
                         borderWidth: 2,
                         pointRadius: 2,
                         lineTension: 0,
-                        data: marzo_suiza
+                        data: marzo_portugal
                     }]
                 },
                 options: {

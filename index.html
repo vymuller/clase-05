@@ -42,7 +42,7 @@
     <script>
         var url = "https://pomber.github.io/covid19/timeseries.json";
 
-        var casos, chile, confirmados, muertos, recuperados;
+        var casos, australia, confirmados, muertos, recuperados;
 
         function preload() {
             casos = loadJSON(url);
@@ -50,11 +50,11 @@
 
         function setup() {
             createCanvas(windowWidth, windowHeight).position(0, 0).style('z-index', -1);
-            chile = casos.Chile;
-            console.log(chile);
-            confirmados = chile[chile.length - 1].confirmed;
-            muertos = chile[chile.length - 1].deaths;
-            recuperados = chile[chile.length - 1].recovered;
+            australia = casos.Australia;
+            console.log(australia);
+            confirmados = australia[australia.length - 1].confirmed;
+            muertos = australia[australia.length - 1].deaths;
+            recuperados = australia[australia.length - 1].recovered;
             console.log(confirmados);
             console.log(muertos);
             console.log(recuperados);
@@ -80,7 +80,12 @@
                 textSize(18);
                 text('☺', random(20, width - 30), random(30, height - 20));
             }
-        }
+
+        textSize(35);
+                    textAlign(CENTER);
+                    fill(37, 37, 37);
+                    text("Australia", width / 2, height / 2);
+                  }
 
         function windowResized() {
             resizeCanvas(windowWidth, windowHeight);

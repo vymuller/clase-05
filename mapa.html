@@ -27,7 +27,7 @@
     <div id="mapamundi" style="width: 100vw; height: 100vh;"></div>
 
     <script>
-        var url = "https://raw.githubusercontent.com/profesorfaco/dno037-2020/gh-pages/clase-05/datos.json"; //esto debe cambiarse
+        var url = "https://raw.githubusercontent.com/vymuller/clase-05/gh-pages/datos.json"; //esto debe cambiarse
 
         var data;
 
@@ -36,7 +36,7 @@
         }
 
         function setup() {
-            var miMapa = L.map('mapamundi').setView([20, 0], 2);
+            var miMapa = L.map('mapamundi').setView([70, -6], 3);
 
             L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
                 minZoom:2,
